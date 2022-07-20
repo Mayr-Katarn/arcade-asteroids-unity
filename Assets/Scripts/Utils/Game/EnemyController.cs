@@ -12,6 +12,7 @@ public class EnemyController : MonoBehaviour
     [SerializeField] private int _startAsteroidsCount = 2;
     [SerializeField] private float _minAsteroidSpeed = 0.5f;
     [SerializeField] private float _maxAsteroidSpeed = 2;
+    [SerializeField] private float _newAsteroidsFlyawayAngle = 45;
     [Space(6), Header("UFO config")]
     [SerializeField] private Ufo _ufoPrefab;
     [SerializeField] private int _ufoPoolSize = 1;
@@ -195,8 +196,8 @@ public class EnemyController : MonoBehaviour
                 case AsteroidType.AsteroidBig:
                     Vector2 position = oldTransform.position;
                     Vector3 oldAngle = oldTransform.eulerAngles;
-                    Vector3 bigerAngle = Vector3.forward * (oldAngle.z + 45);
-                    Vector3 lessAngle = Vector3.forward * (oldAngle.z - 45);
+                    Vector3 bigerAngle = Vector3.forward * (oldAngle.z + _newAsteroidsFlyawayAngle);
+                    Vector3 lessAngle = Vector3.forward * (oldAngle.z - _newAsteroidsFlyawayAngle);
                     Vector3[] newAngles = { bigerAngle, lessAngle };
                     float speed = GetRandomAsteroidSpeed();
 

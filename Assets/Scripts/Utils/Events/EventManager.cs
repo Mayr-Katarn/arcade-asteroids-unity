@@ -3,7 +3,6 @@ using UnityEngine.Events;
 
 public class EventManager
 {
-    #region FIELDS
     public static UnityEvent OnNewGame = new();
     public static UnityEvent OnGameOver = new();
     public static UnityEvent<float> OnUpdateScore = new();
@@ -13,9 +12,7 @@ public class EventManager
     public static UnityEvent<int> OnPlayerKill = new();
     public static UnityEvent<SoundType> OnPlaySound = new();
     public static UnityEvent OnStopPlayThruster = new();
-    #endregion
 
-    #region METHODS
     public static void SendNewGame() => OnNewGame.Invoke();
     public static void SendGameOver() => OnGameOver.Invoke();
     public static void SendUpdateScore(float score) => OnUpdateScore.Invoke(score);
@@ -25,5 +22,4 @@ public class EventManager
     public static void SendPlayerKill(int playerLives) => OnPlayerKill.Invoke(playerLives);
     public static void SendPlaySound(SoundType soundType) => OnPlaySound.Invoke(soundType);
     public static void SendStopPlayThruster() => OnStopPlayThruster.Invoke();
-    #endregion
 }
