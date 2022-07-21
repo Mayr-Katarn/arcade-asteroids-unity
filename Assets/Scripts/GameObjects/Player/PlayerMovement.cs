@@ -24,13 +24,10 @@ public class PlayerMovement : MonoBehaviour
         EventManager.OnNewGame.AddListener(NewGame);
     }
 
-    public Vector3 m;
-
     private void Update()
     {
         PlayerMove();
         PlayerRotation();
-        m = Camera.main.ScreenToWorldPoint(Input.mousePosition);
     }
 
     private void NewGame()

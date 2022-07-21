@@ -39,7 +39,7 @@ public class PlayerFire : MonoBehaviour
     {
         _fireLastTime -= Time.deltaTime;
 
-        if (Input.GetButtonUp("Fire") && _fireLastTime <= 0 && _bulletPool.HasFreeActor(out PlayerBullet bullet, false) && !GameConfig.isGamePaused)
+        if (Input.GetButtonDown("Fire") && _fireLastTime <= 0 && _bulletPool.HasFreeActor(out PlayerBullet bullet, false) && !GameConfig.isGamePaused)
         {
             _fireLastTime = _fireCooldown;
             bullet.Init(_gunTransform);
